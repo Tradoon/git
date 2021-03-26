@@ -55,6 +55,23 @@ git clone https://github.com/你的Github账号/仓库名称 克隆仓库
 
 ```
 
+对git进行本地配置：
+
+
+
+```bash
+git config --global user.name "tradoon"
+git config --global user.email 
+```
+
+配置的内容将在根目录下生成Git配置文件.gitconfig
+
+可以使用```git config -l```查看配置信息
+
+
+
+
+
 
 
 ```shell
@@ -79,6 +96,15 @@ git reset --
 
 ```
 
+``` bash
+git diff --cached
+#查看暂存区中文件的修改
+git log 
+#查看版本区的提交历史记录
+```
+
+git log 详细介绍：https://www.lanqiao.cn/courses/1035/learning/?id=9805
+
 
 
 git问题汇总：
@@ -96,4 +122,26 @@ fatal: unable to access 'https://github.com/Tradoon/EB.git/': gnutls_handshake()
 git config --global --unset http.proxy
 
 git config --global --unset https.proxy
+
+问题：
+
+```shell
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/Tradoon/git.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+```
+
+解决方法
+
+```shell
+ git pull origin master
+ #显示 fatal: refusing to merge unrelated histories
+ git pull origin master --allow-unrelated-histories
+ git push origin master
+```
 
